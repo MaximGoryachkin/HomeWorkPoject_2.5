@@ -18,7 +18,8 @@ class ResultsViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var answers: [Answer]! = [] // Передаем массив с ответами
+    // Передаем массив с ответами
+    var answers: [Answer]! = []
     
     // 1. Передать сюда массив с ответами
     // 2. Определить наиболее часто встерчающийся тип живтоного
@@ -33,6 +34,7 @@ class ResultsViewController: UIViewController {
         // Скрываем кнопку "Back"
         navigationItem.hidesBackButton = true
         
+        // Определяем наиболее часто встерчающийся тип живтоного
         let answer = sorting()
         
         //Отображаем результат в соответсвии с этим животным
@@ -42,7 +44,6 @@ class ResultsViewController: UIViewController {
     
     // MARK: - Private methods
     
-    // Определяем наиболее часто встерчающийся тип живтоного
     private func sorting() -> Answer {
         let sortedSet = NSCountedSet(array: answers)
         let mostFrequent = sortedSet.max {

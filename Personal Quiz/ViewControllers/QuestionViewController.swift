@@ -50,6 +50,12 @@ class QuestionViewController: UIViewController {
         setupUI()
     }
     
+    // Передаем массив с ответами
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultsViewController else { return }
+        resultVC.answers = answersChooser
+    }
+    
     // MARK: - IB Actions
  
     @IBAction func singleAnnserButtonBressed(_ sender: UIButton) {
@@ -141,11 +147,5 @@ extension QuestionViewController {
         }
         
         performSegue(withIdentifier: "resultSegue", sender: nil)
-    }
-    
-    // Передаем массив с ответами
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let resultVC = segue.destination as? ResultsViewController else { return }
-        resultVC.answers = answersChooser
     }
 }
